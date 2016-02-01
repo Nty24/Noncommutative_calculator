@@ -174,6 +174,9 @@ def non_commutative_sympify(expr_string, status, boolean):
     #{'C': C, 'E': E, 'I': I, 'N': N, 'O': O, 'Q': Q, 'S': S}
             
     new_locals.update({'U':UnitaryOperator('U')})
+    new_locals.update({'c':Symbol('c', commutative = True)})
+    new_locals.update({'r':Symbol('r', commutative = True)})
+    new_locals.update({'t':Symbol('t', commutative = True)})
     new_locals.update({'W':UnitaryOperator('W')})
     new_locals.update({'V':UnitaryOperator('V')})
     new_locals.update({'u':UnitaryOperator('u')})
@@ -181,6 +184,7 @@ def non_commutative_sympify(expr_string, status, boolean):
     new_locals.update({'v':UnitaryOperator('v')})
     new_locals.update({'H':HermitianOperator('H')})
     new_locals.update({'A':HermitianOperator('A')})
+    new_locals.update({'T':HermitianOperator('T')})
     new_locals.update({'C':Operator('C')})
     new_locals.update({'Dagger':Dagger})
 
@@ -317,7 +321,7 @@ if __name__ == '__main__':
     calculator.add_text_move(None, " Please use '1' as the identity operator, 'E' as Euler's number, 'I' as imaginary unit.",  "Verdana 9", 20, 400)
     calculator.add_text_move(None, " To expand an expression in the brackets type 'expand', e.g. 'expand((A+B)^2)' returns 'A^2+AB+BA+B^2'." ,  "Verdana 9", 20, 430)
     calculator.add_text_move(None, " For the adjoint use Ad(), e.g. the adjoint of B is Ad(B)." ,  "Verdana 9", 20, 460)
-    calculator.add_text_move(None, " Letters 'U', 'W', 'V', 'u', 'w', 'v' are reserved for unitary operators and 'H', 'A' for selfadjoint operators." ,  "Verdana 9", 20, 490)
+    calculator.add_text_move(None, " 'U', 'W', 'V', 'u', 'w', 'v' are unitary operators, 'H', 'A', 'T' are selfadjoint and 'c', 'r', 't' are constants." ,  "Verdana 9", 20, 490)
     """adding a line and a rectangle"""    
   #  calculator.add_line(0,10,800,10,10)
     calculator.add_rectangle()
